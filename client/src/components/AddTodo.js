@@ -14,7 +14,7 @@ export class AddTodo extends Component {
     render() {
     return (
         <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
-            <input type='text' required="true" name='title' placeholder='Add Todo...' value={this.state.value} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
+            <input type='text' required={true} name='title' placeholder='Add Todo...' value={this.state.value} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
             <input type='submit' value="Add Item" className="btn" style={{flex: '1'}}/>
         </form>
     )
