@@ -5,6 +5,7 @@ import About from './components/pages/About';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Header from './components/layout/Header';
+import SampleCard from './components/SampleCard';
 import axios from 'axios';
 import './App.css';
 
@@ -17,8 +18,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/todos")
+    axios.get("http://localhost:3000/api/getlist")
       .then(res => this.setState({todos:res.data}));
+      //this.setState({todos:res.data})
   }
   changeMark = (id) => {
     console.log(id);
@@ -36,10 +38,11 @@ class App extends React.Component {
         
   }
   addTodo = (title) => {
-    axios.post('https://jsonplaceholder.typicode.com/todos', {
+    axios.post('http://localhost:3000/api/addtolist', {
       title,
       completed: false
-    }).then(res => this.setState({todos: [...this.state.todos, res.data]}));
+    }).then(res => console.log(res));
+    //this.setState({todos: [...this.state.todos, res.data]})
     
   }
   render() {
@@ -56,6 +59,7 @@ class App extends React.Component {
                 </React.Fragment>
               )} />
               <Route path='/about' component={About}/>
+              
               
             </div>
           </div>
